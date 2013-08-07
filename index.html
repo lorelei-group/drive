@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="lorelei-drive">
+	<head>
+		<meta charset="utf-8">
+		<title>Draw [LORELEI]</title>
+		<!--<link rel="stylesheet/less" href="less/main.less">-->
+
+		<style>
+			#loader {
+				text-align: center;
+				padding-top: 25%;
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="bower_components/less/dist/less-1.4.2.js"></script>
+		<script src="js/main"></script>
+	</head>
+
+	<body ng-controller="MasterCtrl">
+		<div id="loader" ng-show="!loaded">Loading...</div>
+
+		<div id="master" ng-show="loaded">
+			<aside ng-controller="SidebarCtrl"></aside>
+			<div id="sidebar-opposite">
+				<header ng-controller="HeaderCtrl"></header>
+
+				<div id="content" ng-controller="ViewportCtrl">
+					<div x-folder ng-repeat="folder in folders">{{ folder.name }}</div>
+					<x-file ng-repeat="file in files">{{ file.name }}</x-file>
+				</div>
+
+				<footer ng-controller="FooterCtrl"></footer>
+			</div>
+		</div>
+	</body>
+</html>
