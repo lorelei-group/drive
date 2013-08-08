@@ -2,26 +2,21 @@ angular.module('lorelei-drive', [
 	'lorelei-drive-fs'
 ])
 
+.config(function($routeProvider) {
+	//$locationProvider.html5Mode(true);
+	$routeProvider
 
-.controller('MasterCtrl', function($scope) {
-	$scope.loaded = true;
+		.when('/browse/:folder', {
+			templateUrl: 'app/fs/browser.html',
+			controller: 'BrowserCtrl'
+		})
+
+		.otherwise({redirectTo: '/browse/' });
 })
 
 
-.controller('ViewportCtrl', function($scope) {
-	$scope.folders = [{
-		id: 'asdfasfarjlkajg',
-		name: 'Cosa',
-		icon: 'http://www.grupogestiona.com/sites/default/files/u1/folder-icon.png',
-		files: [ 'asfdasljflaskf', 'ksdfjalfkwe', 'asdkfaljfe' ]
-	}];
-
-	$scope.files = [{
-		id: 'klajfeslkfj',
-		name: 'Some Document.txt',
-		icon: 'http://www.oceanwide-expeditions.com/assets/img/icon_file.jpg',
-		size: 45643,
-	}];
+.controller('MasterCtrl', function($scope) {
+	$scope.loaded = true;
 })
 
 

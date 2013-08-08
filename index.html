@@ -25,12 +25,7 @@
 			<aside ng-controller="SidebarCtrl"></aside>
 			<div id="sidebar-opposite">
 				<header ng-controller="HeaderCtrl"></header>
-
-				<div id="content" ng-controller="ViewportCtrl">
-					<x-folder ng-repeat="folder in folders" model="folder"></x-folder>
-					<x-file ng-repeat="file in files" model="file"></x-file>
-				</div>
-
+				<div id="content" ng-view></div>
 				<footer ng-controller="FooterCtrl"></footer>
 			</div>
 		</div>

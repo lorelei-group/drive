@@ -1,9 +1,11 @@
 angular.module('lorelei-drive-fs', [])
 
-.directive('fsNode', function() {
+.constant('PATH', 'app/fs/')
+
+.directive('fsNode', function(PATH) {
 	return {
 		restrict: 'A',
-		templateUrl: 'app/fs/node.html',
+		templateUrl: PATH + 'node.html',
 		scope: {
 			node: '=model',
 			tooltip: '@alt'
@@ -14,10 +16,10 @@ angular.module('lorelei-drive-fs', [])
 	};
 })
 
-.directive('folder', function() {
+.directive('folder', function(PATH) {
 	return {
 		restrict: 'E',
-		template: '<div x-fs-node model="folder" x-alt="{{ folder.files.length }} files"></div>',
+		templateUrl: PATH + 'folder.html',
 		scope: {
 			folder: '=model',
 		},
@@ -27,11 +29,10 @@ angular.module('lorelei-drive-fs', [])
 	};
 })
 
-
-.directive('file', function() {
+.directive('file', function(PATH) {
 	return {
 		restrict: 'E',
-		template: '<div x-fs-node model="file"></div>',
+		templateUrl: PATH + 'file.html',
 		scope: {
 			file: '=model',
 		},
@@ -40,3 +41,20 @@ angular.module('lorelei-drive-fs', [])
 		}
 	};
 })
+
+
+.controller('BrowserCtrl', function BrowserCtrl($scope) {
+	$scope.folders = [{
+		id: 'asdfasfarjlkajg',
+		name: 'Cosa',
+		icon: 'http://www.grupogestiona.com/sites/default/files/u1/folder-icon.png',
+		files: [ 'asfdasljflaskf', 'ksdfjalfkwe', 'asdkfaljfe' ]
+	}];
+
+	$scope.files = [{
+		id: 'klajfeslkfj',
+		name: 'Some Document.txt',
+		icon: 'http://www.oceanwide-expeditions.com/assets/img/icon_file.jpg',
+		size: 45643,
+	}];
+});
