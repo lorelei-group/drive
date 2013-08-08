@@ -2,20 +2,6 @@ angular.module('lorelei-drive-fs', [])
 
 .constant('PATH', 'app/fs/')
 
-.directive('fsNode', function(PATH) {
-	return {
-		restrict: 'A',
-		templateUrl: PATH + 'node.html',
-		scope: {
-			node: '=model',
-			tooltip: '@alt'
-		},
-		link: function(scope, element, attributes) {
-			console.log('creating node :D');
-		}
-	};
-})
-
 .directive('folder', function(PATH) {
 	return {
 		restrict: 'E',

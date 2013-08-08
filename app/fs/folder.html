@@ -1,4 +1,4 @@
-<div x-fs-node
-	model="folder"
-	x-alt="{{ folder.files.length }} files">
-</div>
+<img
+	title="{{ folder.files.length }}"
+	ng-src="{{ folder.icon }}">
+<span ng-bind="folder.name"></span>
