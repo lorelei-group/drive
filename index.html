@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Draw [LORELEI]</title>
-		<!--<link rel="stylesheet/less" href="less/main.less">-->
+		<link rel="stylesheet/less" href="app/main.less">
 
 		<style>
 			#loader {
@@ -14,7 +14,8 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 		<script src="bower_components/less/dist/less-1.4.2.js"></script>
-		<script src="js/main"></script>
+		<script src="app/fs/fs.js"></script>
+		<script src="app/main.js"></script>
 	</head>
 
 	<body ng-controller="MasterCtrl">
@@ -26,8 +27,8 @@
 				<header ng-controller="HeaderCtrl"></header>
 
 				<div id="content" ng-controller="ViewportCtrl">
-					<div x-folder ng-repeat="folder in folders">{{ folder.name }}</div>
-					<x-file ng-repeat="file in files">{{ file.name }}</x-file>
+					<x-folder ng-repeat="folder in folders" model="folder"></x-folder>
+					<x-file ng-repeat="file in files" model="file"></x-file>
 				</div>
 
 				<footer ng-controller="FooterCtrl"></footer>
